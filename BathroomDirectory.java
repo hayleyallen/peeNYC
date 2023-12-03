@@ -7,4 +7,13 @@ public class BathroomDirectory {
 	public void addEntry(BathroomEntry entry) {
 		bathroomList.add(entry)
 	}
+
+    //search for bathroom by address and delete entry (if bathroom no longer there)
+	public void DeleteEntry(String address) {
+	    for (int i = 0; i < ArrayList.size(); i++) {
+	        if (entry.get(i).getAddress() == address) {
+	            entry.remove(i);
+	        }
+	    }
+	}
 }
