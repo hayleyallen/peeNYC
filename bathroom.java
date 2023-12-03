@@ -2,6 +2,7 @@
 
 public class bathroom {
 
+    int num;
     String name;
 
     public bathroom() {
