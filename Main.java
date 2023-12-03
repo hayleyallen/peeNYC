@@ -1,10 +1,11 @@
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.*;
 
-public class main {
+public class Main {
 
 	public static void main(String[] args) throws IOException {
 
@@ -24,12 +25,14 @@ public class main {
 
 			BufferedReader bufferedReader = new BufferedReader(fileReader);
 
+			int i = 0;
 			while ((line = bufferedReader.readLine()) != null) {
 				ArrayList<String> entries = new ArrayList<>();
 
 				String[] tmp = line.split(",");
 
 				entries.add(tmp[0].trim());
+				bathroomName = entries.get(i);
 				entries.add(tmp[1].trim());
 				entries.add(tmp[2].trim());
 				entries.add(tmp[3].trim());
