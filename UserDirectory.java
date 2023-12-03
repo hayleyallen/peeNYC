@@ -2,6 +2,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class UserDirectory {
+
 	private ArrayList<User> userList = new ArrayList<User>();
 
 	// add entry

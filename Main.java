@@ -63,8 +63,6 @@ public class Main {
 			System.out.println("Error reading file '" + bathroomFile + "'");
 		}
 
-		// ArrayList <BathroomEntry> publicBathrooms = //
-
 	}
 
 	// check if user has an account
