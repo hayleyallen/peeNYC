@@ -6,7 +6,6 @@ import java.util.Scanner;
 import java.util.*;
 
 public class Main extends BathroomDirectory {
-
 	public static void main(String[] args) throws IOException {
 
 		Scanner input = new Scanner(System.in);
@@ -47,11 +46,11 @@ public class Main extends BathroomDirectory {
 
 				entries.add(tmp[3].trim());
 				bathroomLat = entries.get(i + 3);
-				Long latitude = Long.valueOf(bathroomLat);
+				long latitude = (long) Double.parseDouble(bathroomLat);
 
 				entries.add(tmp[4].trim());
 				bathroomLong = entries.get(i + 4);
-				Long longitude = Long.valueOf(bathroomLong);
+				long longitude = (long) Double.parseDouble(bathroomLong);
 
 				entries.add(tmp[5].trim());
 				bathroomCode = entries.get(i + 5);
@@ -77,12 +76,10 @@ public class Main extends BathroomDirectory {
 		} catch (IOException ex) {
 			System.out.println("Error reading file '" + bathroomFile + "'");
 		}
-		for (String element : entries) {
-			System.out.println(element);
-		}
 
 		// ArrayList <BathroomEntry> publicBathrooms = //
 		while (true) {
+			System.out.println();
 			System.out.println("PeeNYC");
 			System.out.println("Find public bathrooms in New York City");
 			System.out.println("---------------------------------------");
@@ -91,18 +88,14 @@ public class Main extends BathroomDirectory {
 			System.out.println("Would you like to enter?");
 			String answer = input.next();
 			if (answer.equalsIgnoreCase("yes")) {
-				System.out.print("Enter your location (in latitude then longitude separated by a space)");
-				String userLatLong = input.nextLine();
-				String[] latLong = userLatLong.split(" ");
+				System.out.print("Enter your location (in latitude then longitude separated by a comma)");
+				String userLatLong = input.next();
+				String[] latLong = userLatLong.split(",");
 				String latitude = latLong[0];
 				String longitude = latLong[1];
 
 				bathroomDirectory.printBathrooms();
 
-				String choice = "";
-				while (choice != null) {
-
-				}
 			} else if (answer.equalsIgnoreCase("no")) {
 				break;
 			} else {
@@ -112,29 +105,28 @@ public class Main extends BathroomDirectory {
 		System.out.print("exiting app***");
 	}
 
-	}
-
 	// check if user has an account
 	public void login() {
 		UserDirectory userDirectory = new UserDirectory();
 		Scanner input = new Scanner(System.in);
 		int x = 1;
 		System.out.println("Do you have an account? y/n: ");
-		if (input.next() == "y") {
+		String answer = input.next();
+		if (answer.equalsIgnoreCase("y")) {
 			while (x == 1) {
 				System.out.print("Enter username: ");
 				String username = input.next();
 				System.out.print("Enter password: ");
 				String password = input.next();
-
 				int index = userDirectory.accountCheck(username, password);
 				if (index == -2) {
 					System.out.println(
 							"We couldn't find an account with that information. Enter 1 to try again or 0 to exit.");
-					if (input.nextInt() == 0)
+					if (input.nextInt() == 0) {
 						x = 0;
+					}
 				} else {
-					System.out.println("Hi " + (userDirectory.findName(i)));
+					System.out.println("Hi " + (userDirectory.findName(index)));
 					x = 0;
 				}
 			}
