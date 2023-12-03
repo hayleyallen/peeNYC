@@ -87,6 +87,7 @@ public class Main extends BathroomDirectory {
 			System.out.println("Would you like to enter?");
 			String answer = input.next();
 			if (answer.equalsIgnoreCase("yes")) {
+				System.out.println();
 				System.out.print("Enter your location (in latitude then longitude separated by a comma)");
 				String userLatLong = input.next();
 				String[] latLong = userLatLong.split(",");
@@ -99,6 +100,7 @@ public class Main extends BathroomDirectory {
 
 				int choice = 0;
 				while (choice != -1) {
+					System.out.println();
 					System.out.println("You can perform any of the following actions... ");
 					System.out.println("1. View a bathroom's details");
 					System.out.println("2. Add a bathroom");
@@ -114,7 +116,7 @@ public class Main extends BathroomDirectory {
 					switch (choice) {
 						case 1:
 							System.out.println("Which bathroom do you want to view details of? (by name)");
-							String tmp = input.nextLine();
+							String tmp = input.next();
 							int index = bathroomDirectory.findBathroomByName(tmp);
 							if (index == -1)
 								System.out.println("No bathroom found");
@@ -124,6 +126,7 @@ public class Main extends BathroomDirectory {
 							break;
 
 						case 2:
+							System.out.println();
 							System.out.print("Enter Name: ");
 							String name = input.nextLine();
 							System.out.print("Enter Rating: ");
@@ -144,10 +147,12 @@ public class Main extends BathroomDirectory {
 							System.out.println("Successfully added!");
 
 						case 3:
+							System.out.println();
 							System.out.println("Rate this bathroom out from 0-5 stars");
 							double rate = input.nextDouble();
 							break;
 						case 4:
+							System.out.println();
 							System.out.print("exiting app***");
 							choice = -1;
 							System.exit(0);
@@ -158,6 +163,7 @@ public class Main extends BathroomDirectory {
 			} else if (answer.equalsIgnoreCase("no")) {
 				break;
 			} else {
+				System.out.println();
 				System.out.print("Invalid answer option, please type yes or no");
 			}
 
