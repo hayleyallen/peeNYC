@@ -25,9 +25,10 @@ public class Main {
 
 			BufferedReader bufferedReader = new BufferedReader(fileReader);
 
+			ArrayList<String> entries = new ArrayList<>();
 			int i = 0;
+
 			while ((line = bufferedReader.readLine()) != null) {
-				ArrayList<String> entries = new ArrayList<>();
 
 				String[] tmp = line.split(",");
 
@@ -61,6 +62,10 @@ public class Main {
 			System.out.println("Unable to open file '" + bathroomFile + "'");
 		} catch (IOException ex) {
 			System.out.println("Error reading file '" + bathroomFile + "'");
+		}
+
+		for (String element : entries) {
+			System.out.println(element);
 		}
 
 		// ArrayList <BathroomEntry> publicBathrooms = //
