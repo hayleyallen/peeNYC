@@ -64,10 +64,6 @@ public class Main {
 			System.out.println("Error reading file '" + bathroomFile + "'");
 		}
 
-		for (String element : entries) {
-			System.out.println(element);
-		}
-
 		// ArrayList <BathroomEntry> publicBathrooms = //
 
 	}
