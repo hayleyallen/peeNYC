@@ -9,10 +9,10 @@ public class UserDirectory {
 		userList.add(entry);
 	}
 
-	//check if user successfully logged in
+	// check if user successfully logged in
 	public int accountCheck(String usernameAttempt, String passwordAttempt) {
-		for (int i = 0; i < size; i++) {
-			if(userlist.get(i).getUsername() == usernameAttempt) {
+		for (int i = 0; i < userList.size(); i++) {
+			if (userList.get(i).getUsername() == usernameAttempt) {
 				if (userList.get(i).getPassword() == passwordAttempt)
 					return i;
 			}
@@ -20,7 +20,7 @@ public class UserDirectory {
 		return -2;
 	}
 
-	//get user's name
+	// get user's name
 	public String findName(int i) {
 		return userList.get(i).getName();
 	}
