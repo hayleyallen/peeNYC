@@ -16,4 +16,10 @@ public class BathroomDirectory {
 	        }
 	    }
 	}
+
+	//print all bathroom names
+	public void printBathrooms() {
+		for (BathroomEntry bathroom : bathroomList)
+			System.out.println(bathroom.getName());
+	}
 }
