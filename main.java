@@ -5,49 +5,46 @@ import java.io.IOException;
 import java.util.*;
 
 public class main {
-	public static void main(String[] args) throws IOException{
-    	
+	public static void main(String[] args) throws IOException {
+
 		String bathroomFile = "publicBathrooms";
 		String line = null;
 
-		String bathroomName = "";
-		String bathroomRating = "";
-		String bathroomAddress = "";
-		String bathroomLat = "";
-		String bathroomLong = "";
-		String bathroomCode = "";
-		String bathroomAccesibility = "";
+		boolean bathroomName = false;
+		boolean bathroomRating = false;
+		boolean bathroomAddress = false;
+		boolean bathroomLat = false;
+		boolean bathroomLong = false;
+		boolean bathroomCode = false;
+		boolean bathroomAccesibility = false;
 
 		try {
-			FileReader fileReader = new FileReader("publicBathrooms");
-		
-			BufferedReader bufferedReader = new BufferedReader(fileReader);
-		 
-			int i = 0;
-			while((line = bufferedReader .readLine()) != null) {
-				String[] entries = line.split(",");
-			
-				bathroomName = entries[i].trim();
-				bathroomRating = entries[i+1].trim();
-				bathroomAddress = entries[i+2].trim();
-				bathroomLat = entries[i+3].trim();
-				bathroomLong = entries[i+4].trim();
-				bathroomCode = entries[i+5].trim();
-				bathroomAccesibility = entries[i+6].trim();
+			FileReader fileReader = new FileReader("publicBathrooms.txt");
 
-				i += 7;
+			BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+			while ((line = bufferedReader.readLine()) != null) {
+				ArrayList<String> entries = new ArrayList<>();
+
+				String[] tmp = line.split(",");
+
+				bathroomName = entries.add(tmp[0].trim());
+				bathroomRating = entries.add(tmp[1].trim());
+				bathroomAddress = entries.add(tmp[2].trim());
+				bathroomLat = entries.add(tmp[3].trim());
+				bathroomLong = entries.add(tmp[4].trim());
+				bathroomCode = entries.add(tmp[5].trim());
+				bathroomAccesibility = entries.add(tmp[6].trim());
+
 			}
 
 			bufferedReader.close();
-		} catch(FileNotFoundException ex) {
+		} catch (FileNotFoundException ex) {
 			System.out.println("Unable to open file '" + bathroomFile + "'");
-		} catch(IOException ex) {
+		} catch (IOException ex) {
 			System.out.println("Error reading file '" + bathroomFile + "'");
 		}
-	
 
-    	 
-
-         ArrayList <BathroomEntry> publicBathrooms = //
-    }
+		// ArrayList <BathroomEntry> publicBathrooms = //
+	}
 }
