@@ -6,6 +6,6 @@ public class UserDirectory {
 
 	// add entry
 	public void addEntry(User entry) {
-		userList.add(entry)
+		userList.add(entry);
 	}
 }
