@@ -3,9 +3,16 @@ import java.util.ArrayList;
 public class BathroomDirectory {
     private ArrayList<BathroomEntry> bathroomList = new ArrayList<BathroomEntry>();
 
+    public int size;
+
+    public int getSize() {
+        return size;
+    }
+
     // add entry
     public void addEntry(BathroomEntry entry) {
         bathroomList.add(entry);
+        size++;
     }
 
     // print all bathroom names

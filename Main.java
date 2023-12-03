@@ -22,6 +22,7 @@ public class Main extends BathroomDirectory {
 		String bathroomCode = "";
 		String bathroomAccesibility = "";
 		ArrayList<String> entries = new ArrayList<>();
+		BathroomDirectory bathroomDirectory = new BathroomDirectory();
 
 		try {
 			FileReader fileReader = new FileReader("publicBathrooms.txt");
@@ -62,8 +63,10 @@ public class Main extends BathroomDirectory {
 
 				i += 7;
 
-				BathroomEntry bathroom = new BathroomEntry(bathroomName, rating, bathroomAddress, latitude, longitude, code, accessibility);
-				BathroomDirectory().addEntry(bathroom);
+				BathroomEntry bathroom = new BathroomEntry(bathroomName, rating, bathroomAddress, latitude, longitude,
+						code, accessibility);
+
+				bathroomDirectory.addEntry(bathroom);
 
 			}
 
@@ -79,41 +82,41 @@ public class Main extends BathroomDirectory {
 		}
 
 		// ArrayList <BathroomEntry> publicBathrooms = //
-		while(true){
+		while (true) {
 			System.out.println("PeeNYC");
 			System.out.println("Find public bathrooms in New York City");
 			System.out.println("---------------------------------------");
 			System.out.println("easily find accessible, gender-neutral, public bathrooms near you!");
-   
-			System.out.println("Would you like to enter?");
-			if(input.next.equalsIgnoreCase("yes")){
-			   System.out.print("Enter your location (in latitude then longitude separated by a space)");
-			   String userLatLong = input.nextLine();
-			   String[] latLong = userLatLong.split(" ");
-			   String latitude = latLong[0];
-			   String longitude = latLong[1];
-			   
-			   for(int i = 0 ; i<; i++){
-				if(.get(i).)
-			   }
 
-			   String choice = "";
-			   while(choice!=null){
-				
-			   }
-			}else if(input.next.equalsIgnoreCase("no")){
-			   break;
-			}else{
-			   System.out.print("Invalid answer option, please type yes or no");
+			System.out.println("Would you like to enter?");
+			String answer = input.next();
+			if (answer.equalsIgnoreCase("yes")) {
+				System.out.print("Enter your location (in latitude then longitude separated by a space)");
+				String userLatLong = input.nextLine();
+				String[] latLong = userLatLong.split(" ");
+				String latitude = latLong[0];
+				String longitude = latLong[1];
+
+				bathroomDirectory.printBathrooms();
+
+				String choice = "";
+				while (choice != null) {
+
+				}
+			} else if (answer.equalsIgnoreCase("no")) {
+				break;
+			} else {
+				System.out.print("Invalid answer option, please type yes or no");
 			}
-		   }
-		   System.out.print("exiting app***");
-	   }
+		}
+		System.out.print("exiting app***");
+	}
 
 	}
 
 	// check if user has an account
 	public void login() {
+		UserDirectory userDirectory = new UserDirectory();
 		Scanner input = new Scanner(System.in);
 		int x = 1;
 		System.out.println("Do you have an account? y/n: ");
@@ -124,14 +127,14 @@ public class Main extends BathroomDirectory {
 				System.out.print("Enter password: ");
 				String password = input.next();
 
-				int index = UserDirectory().accountCheck(username, password);
+				int index = userDirectory.accountCheck(username, password);
 				if (index == -2) {
 					System.out.println(
 							"We couldn't find an account with that information. Enter 1 to try again or 0 to exit.");
 					if (input.nextInt() == 0)
 						x = 0;
 				} else {
-					System.out.println("Hi " + (UserDirectory().findName(i)));
+					System.out.println("Hi " + (userDirectory.findName(i)));
 					x = 0;
 				}
 			}
@@ -140,6 +143,7 @@ public class Main extends BathroomDirectory {
 
 	// create account
 	public void createAccount() {
+		UserDirectory userDirectory = new UserDirectory();
 		Scanner input = new Scanner(System.in);
 		System.out.println("Name: ");
 		String name = input.nextLine();
@@ -148,6 +152,6 @@ public class Main extends BathroomDirectory {
 		System.out.println("Password: ");
 		String password = input.nextLine();
 		User newUser = new User(name, username, password);
-		UserDirectory().addEntry(newUser);
+		userDirectory.addEntry(newUser);
 	}
 }
