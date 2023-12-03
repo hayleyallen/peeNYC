@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.util.*;
 
-public class Main {
+public class Main extends BathroomDirectory {
 
 	public static void main(String[] args) throws IOException {
 
@@ -39,23 +39,31 @@ public class Main {
 
 				entries.add(tmp[1].trim());
 				bathroomRating = entries.get(i + 1);
+				double rating = Double.valueOf(bathroomRating);
 
 				entries.add(tmp[2].trim());
 				bathroomAddress = entries.get(i + 2);
 
 				entries.add(tmp[3].trim());
 				bathroomLat = entries.get(i + 3);
+				Long latitude = Long.valueOf(bathroomLat);
 
 				entries.add(tmp[4].trim());
 				bathroomLong = entries.get(i + 4);
+				Long longitude = Long.valueOf(bathroomLong);
 
 				entries.add(tmp[5].trim());
 				bathroomCode = entries.get(i + 5);
+				int code = Integer.valueOf(bathroomCode);
 
 				entries.add(tmp[6].trim());
 				bathroomAccesibility = entries.get(i + 6);
+				boolean accessibility = Boolean.valueOf(bathroomAccesibility);
 
 				i += 7;
+
+				BathroomEntry bathroom = new BathroomEntry(bathroomName, rating, bathroomAddress, latitude, longitude, code, accessibility);
+				BathroomDirectory().addEntry(bathroom);
 
 			}
 
