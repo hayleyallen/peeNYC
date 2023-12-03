@@ -60,6 +60,7 @@ public class Main {
 			}
 
 			bufferedReader.close();
+
 		} catch (FileNotFoundException ex) {
 			System.out.println("Unable to open file '" + bathroomFile + "'");
 		} catch (IOException ex) {
@@ -105,6 +106,7 @@ public class Main {
 
 	// check if user has an account
 	public void login() {
+		Scanner input = new Scanner(System.in);
 		int x = 1;
 		System.out.println("Do you have an account? y/n: ");
 		if (input.next() == "y") {
@@ -130,6 +132,7 @@ public class Main {
 
 	// create account
 	public void createAccount() {
+		Scanner input = new Scanner(System.in);
 		System.out.println("Name: ");
 		String name = input.nextLine();
 		System.out.println("Username: ");
