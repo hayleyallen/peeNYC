@@ -2,9 +2,9 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class UserDirectory {
-    private ArrayList<User> userList = new ArrayList<User>();
+	private ArrayList<User> userList = new ArrayList<User>();
 
-    //add entry
+	// add entry
 	public void addEntry(User entry) {
 		userList.add(entry)
 	}
