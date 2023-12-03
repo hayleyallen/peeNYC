@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Scanner;
 import java.util.*;
 
 public class Main {
@@ -36,28 +37,21 @@ public class Main {
 
 				entries.add(tmp[1].trim());
 				bathroomRating = entries.get(i + 1);
-				double rating = Double.valueOf(bathroomRating);
 
 				entries.add(tmp[2].trim());
 				bathroomAddress = entries.get(i + 2);
 
 				entries.add(tmp[3].trim());
 				bathroomLat = entries.get(i + 3);
-				long latitude = Long.valueOf(bathroomLat);
 
 				entries.add(tmp[4].trim());
 				bathroomLong = entries.get(i + 4);
-				long longitude = Long.valueOf(bathroomLong);
 
 				entries.add(tmp[5].trim());
 				bathroomCode = entries.get(i + 5);
-				int codeStatus = Integer.valueOf(bathroomCode);
 
 				entries.add(tmp[6].trim());
 				bathroomAccesibility = entries.get(i + 6);
-				boolean accessibility = Boolean.valueOf(bathroomAccesibility);
-
-				BathroomEntry(bathroomName, rating, bathroomAddress, latitude, longitude, codeStatus, accessibility);
 
 				i += 7;
 
@@ -69,18 +63,46 @@ public class Main {
 		} catch (IOException ex) {
 			System.out.println("Error reading file '" + bathroomFile + "'");
 		}
-
-		for (int i = 0; i < entries.size() / 7; i++) {
-
+		for (String element : entries) {
+			System.out.println(element);
 		}
 
+		// ArrayList <BathroomEntry> publicBathrooms = //
+		while(true){
+			System.out.println("PeeNYC");
+			System.out.println("Find public bathrooms in New York City");
+			System.out.println("---------------------------------------");
+			System.out.println("easily find accessible, gender-neutral, public bathrooms near you!");
+   
+			System.out.println("Would you like to enter?");
+			if(input.next.equalsIgnoreCase("yes"){
+			   System.out.print("Enter your location (in latitude then longitude separated by a space)");
+			   userLatLong = input.nextLine;
+			   String[] latLong = userLatLong.split(" ");
+			   String latitude = latLong[0];
+			   String longitude = latLong[1];
+			   
+			   for(int i = 0 ; i<; i++){
+				if(.get(i).)
+			   }
+
+			   String choice = "";
+			   while(choice!=null){
+				
+			   }
+			}else if(input.next.equalsIgnoreCase("no"){
+			   break;
+			}else{
+			   System.out.print("Invalid answer option, please type yes or no");
+			}
+		   }
+		   System.out.print("exiting app***");
+	   }
+   
 	}
 
 	// check if user has an account
 	public void login() {
-
-		Scanner input = new Scanner(System.in);
-
 		int x = 1;
 		System.out.println("Do you have an account? y/n: ");
 		if (input.next() == "y") {
@@ -97,7 +119,7 @@ public class Main {
 					if (input.nextInt() == 0)
 						x = 0;
 				} else {
-					System.out.println("Hi " + (UserDirectory().findName(index)));
+					System.out.println("Hi " + (UserDirectory().findName(i)));
 					x = 0;
 				}
 			}
@@ -106,9 +128,6 @@ public class Main {
 
 	// create account
 	public void createAccount() {
-
-		Scanner input = new Scanner(System.in);
-
 		System.out.println("Name: ");
 		String name = input.nextLine();
 		System.out.println("Username: ");
