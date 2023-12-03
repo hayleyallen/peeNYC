@@ -6,7 +6,7 @@ public class BathroomEntry {
 	private String address;
 	private long latitude;
 	private long longitude;
-	private boolean codeStatus;
+	private int codeStatus;
 	private boolean accessibility;
 
 	// default constructor
@@ -15,19 +15,19 @@ public class BathroomEntry {
 
 	// constructor: all fields
 	public BathroomEntry(String entryName, double entryRating, String entryAddress,
-			long entryLatitude, long entryLongitude, boolean entryCodeStatus, boolean entryAccessibility) {
-		name = entryName;
-		rating = entryRating;
-		address = entryAddress;
-		latitude = entryLatitude;
-		longitude = entryLongitude;
-		codeStatus = entryCodeStatus;
-		accessibility = entryAccessibility;
+			long entryLatitude, long entryLongitude, int entryCodeStatus, boolean entryAccessibility) {
+		this.name = entryName;
+		this.rating = entryRating;
+		this.address = entryAddress;
+		this.latitude = entryLatitude;
+		this.longitude = entryLongitude;
+		this.codeStatus = entryCodeStatus;
+		this.accessibility = entryAccessibility;
 	}
 
 	// constructor: name, address, code status, accessibility
 	public BathroomEntry(String entryName, String entryAddress, long entryLatitude, long entryLongitude,
-			boolean entryCodeStatus, boolean entryAccessibility) {
+			int entryCodeStatus, boolean entryAccessibility) {
 		name = entryName;
 		address = entryAddress;
 		latitude = entryLatitude;
@@ -37,12 +37,10 @@ public class BathroomEntry {
 	}
 
 	// constructor: name, address, code status, accessibility, rating
-	public BathroomEntry(String entryName, String entryAddress, long entryLatitude, long entryLongitude,
-			boolean entryCodeStatus, boolean entryAccessibility, double entryRating) {
+	public BathroomEntry(String entryName, String entryAddress, int entryCodeStatus, boolean entryAccessibility,
+			double entryRating) {
 		name = entryName;
 		address = entryAddress;
-		latitude = entryLatitude;
-		longitude = entryLongitude;
 		codeStatus = entryCodeStatus;
 		accessibility = entryAccessibility;
 		rating = entryRating;
@@ -99,11 +97,11 @@ public class BathroomEntry {
 		this.longitude = longitude;
 	}
 
-	public boolean getCodeStatus() {
+	public int getCodeStatus() {
 		return codeStatus;
 	}
 
-	public void setCodeStatus(boolean codeStatus) {
+	public void setCodeStatus(int codeStatus) {
 		this.codeStatus = codeStatus;
 	}
 

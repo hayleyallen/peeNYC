@@ -36,21 +36,28 @@ public class Main {
 
 				entries.add(tmp[1].trim());
 				bathroomRating = entries.get(i + 1);
+				double rating = Double.valueOf(bathroomRating);
 
 				entries.add(tmp[2].trim());
 				bathroomAddress = entries.get(i + 2);
 
 				entries.add(tmp[3].trim());
 				bathroomLat = entries.get(i + 3);
+				long latitude = Long.valueOf(bathroomLat);
 
 				entries.add(tmp[4].trim());
 				bathroomLong = entries.get(i + 4);
+				long longitude = Long.valueOf(bathroomLong);
 
 				entries.add(tmp[5].trim());
 				bathroomCode = entries.get(i + 5);
+				int codeStatus = Integer.valueOf(bathroomCode);
 
 				entries.add(tmp[6].trim());
 				bathroomAccesibility = entries.get(i + 6);
+				boolean accessibility = Boolean.valueOf(bathroomAccesibility);
+
+				BathroomEntry(bathroomName, rating, bathroomAddress, latitude, longitude, codeStatus, accessibility);
 
 				i += 7;
 
@@ -61,6 +68,10 @@ public class Main {
 			System.out.println("Unable to open file '" + bathroomFile + "'");
 		} catch (IOException ex) {
 			System.out.println("Error reading file '" + bathroomFile + "'");
+		}
+
+		for (int i = 0; i < entries.size() / 7; i++) {
+
 		}
 
 	}
@@ -86,7 +97,7 @@ public class Main {
 					if (input.nextInt() == 0)
 						x = 0;
 				} else {
-					System.out.println("Hi " + (UserDirectory().findName(i)));
+					System.out.println("Hi " + (UserDirectory().findName(index)));
 					x = 0;
 				}
 			}
