@@ -19,13 +19,13 @@ public class Main {
 		String bathroomLong = "";
 		String bathroomCode = "";
 		String bathroomAccesibility = "";
+		ArrayList<String> entries = new ArrayList<>();
 
 		try {
 			FileReader fileReader = new FileReader("publicBathrooms.txt");
 
 			BufferedReader bufferedReader = new BufferedReader(fileReader);
 
-			ArrayList<String> entries = new ArrayList<>();
 			int i = 0;
 
 			while ((line = bufferedReader.readLine()) != null) {
