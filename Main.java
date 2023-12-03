@@ -9,6 +9,8 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 
+		Scanner input = new Scanner(System.in);
+
 		String bathroomFile = "publicBathrooms";
 		String line = null;
 
@@ -75,9 +77,9 @@ public class Main {
 			System.out.println("easily find accessible, gender-neutral, public bathrooms near you!");
    
 			System.out.println("Would you like to enter?");
-			if(input.next.equalsIgnoreCase("yes"){
+			if(input.next.equalsIgnoreCase("yes")){
 			   System.out.print("Enter your location (in latitude then longitude separated by a space)");
-			   userLatLong = input.nextLine;
+			   String userLatLong = input.nextLine();
 			   String[] latLong = userLatLong.split(" ");
 			   String latitude = latLong[0];
 			   String longitude = latLong[1];
@@ -90,7 +92,7 @@ public class Main {
 			   while(choice!=null){
 				
 			   }
-			}else if(input.next.equalsIgnoreCase("no"){
+			}else if(input.next.equalsIgnoreCase("no")){
 			   break;
 			}else{
 			   System.out.print("Invalid answer option, please type yes or no");
@@ -98,7 +100,7 @@ public class Main {
 		   }
 		   System.out.print("exiting app***");
 	   }
-   
+
 	}
 
 	// check if user has an account
