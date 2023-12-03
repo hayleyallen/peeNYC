@@ -2,7 +2,6 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Scanner;
 import java.util.*;
 
 public class Main {
@@ -70,6 +69,9 @@ public class Main {
 
 	// check if user has an account
 	public void login() {
+
+		Scanner input = new Scanner(System.in);
+
 		int x = 1;
 		System.out.println("Do you have an account? y/n: ");
 		if (input.next() == "y") {
@@ -95,6 +97,9 @@ public class Main {
 
 	// create account
 	public void createAccount() {
+
+		Scanner input = new Scanner(System.in);
+
 		System.out.println("Name: ");
 		String name = input.nextLine();
 		System.out.println("Username: ");
