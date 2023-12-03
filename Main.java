@@ -2,7 +2,6 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Scanner;
 import java.util.*;
 
 public class Main extends BathroomDirectory {
@@ -77,14 +76,13 @@ public class Main extends BathroomDirectory {
 			System.out.println("Error reading file '" + bathroomFile + "'");
 		}
 
-		// ArrayList <BathroomEntry> publicBathrooms = //
-		while (true) {
-			System.out.println();
-			System.out.println("PeeNYC");
-			System.out.println("Find public bathrooms in New York City");
-			System.out.println("---------------------------------------");
-			System.out.println("easily find accessible, gender-neutral, public bathrooms near you!");
+		System.out.println();
+		System.out.println("PeeNYC");
+		System.out.println("Find public bathrooms in New York City");
+		System.out.println("---------------------------------------");
+		System.out.println("easily find accessible, gender-neutral, public bathrooms near you!");
 
+		while (true) {
 			System.out.println("Would you like to enter?");
 			String answer = input.next();
 			if (answer.equalsIgnoreCase("yes")) {
@@ -103,6 +101,14 @@ public class Main extends BathroomDirectory {
 			}
 		}
 		System.out.print("exiting app***");
+	}
+
+	public void sortBathrooms(long userLat, long userLong, BathroomDirectory bathroomDirectory) {
+
+		for (int i = 0; i < bathroomDirectory.getSize(); i++) {
+			double distance = DistanceCalculator.distanceCalculator(userLat, userLong, bathroomDirectory.getEntry(0));
+		}
+
 	}
 
 	// check if user has an account

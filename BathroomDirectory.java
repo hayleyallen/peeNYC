@@ -18,7 +18,12 @@ public class BathroomDirectory {
     // print all bathroom names
     public void printBathrooms() {
         for (BathroomEntry bathroom : bathroomList)
-            System.out.println(bathroom.getName());
+            System.out.print(bathroom.getName());
+
+    }
+
+    public BathroomEntry getEntry(int index) {
+        return bathroomList.get(index);
     }
 
     // search for bathroom by address and delete entry (if bathroom no longer there)
