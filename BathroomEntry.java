@@ -3,7 +3,6 @@ public class BathroomEntry {
 	// data fields
 	private String name;
 	private double rating;
-	private String notes;
 	private String address;
 	private long latitude;
 	private long longitude;
@@ -15,11 +14,10 @@ public class BathroomEntry {
 	}
 
 	// constructor: all fields
-	public BathroomEntry(String entryName, double entryRating, String entryNotes, String entryAddress,
+	public BathroomEntry(String entryName, double entryRating, String entryAddress,
 			long entryLatitude, long entryLongitude, boolean entryCodeStatus, boolean entryAccessibility) {
 		name = entryName;
 		rating = entryRating;
-		notes = entryNotes;
 		address = entryAddress;
 		latitude = entryLatitude;
 		longitude = entryLongitude;
@@ -50,16 +48,15 @@ public class BathroomEntry {
 		rating = entryRating;
 	}
 
-	// constructor: name, address, code status, accessibility, notes
+	// constructor: name, address, code status, accessibility
 	public BathroomEntry(String entryName, String entryAddress, long entryLatitude, long entryLongitude,
-			boolean entryCodeStatus, boolean entryAccessibility, String entryNotes) {
+			boolean entryCodeStatus, boolean entryAccessibility) {
 		name = entryName;
 		address = entryAddress;
 		latitude = entryLatitude;
 		longitude = entryLongitude;
 		codeStatus = entryCodeStatus;
 		accessibility = entryAccessibility;
-		notes = entryNotes;
 	}
 
 	// display info
@@ -70,7 +67,6 @@ public class BathroomEntry {
 		System.out.println("Rating: " + getRating());
 		System.out.println("Code status: " + getCodeStatus());
 		System.out.println("ADA compliance: " + getAccessibility());
-		System.out.println("Notes: " + getNotes());
 	}
 
 	// getters and setters
@@ -88,14 +84,6 @@ public class BathroomEntry {
 
 	public void setRating(double rating) {
 		this.rating = rating;
-	}
-
-	public String getNotes() {
-		return notes;
-	}
-
-	public void setNotes(String notes) {
-		this.notes = notes;
 	}
 
 	public String getAddress() {
