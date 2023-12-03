@@ -9,13 +9,16 @@ public class main{
     	 
     	 try {
     		 FileReader fileReader = new FileReader("publicBathrooms");
-    		 
-    		 
+    		 BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+             while((line = bufferedReader.readLine())!=null){
+                
+             }
     	 } catch(IOException E) {
     		 
     	 }
     	 
 
-         ArrayList <BathroomEntry> publicBathrooms = new FileReader(pubb)
+         ArrayList <BathroomEntry> publicBathrooms = //
     }
 }
