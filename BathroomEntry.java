@@ -6,6 +6,7 @@ public class BathroomEntry {
 	private String notes;
 	private String address;
 	private boolean codeStatus;
+    private boolean accessibility;
 		
 		
 	//default constructor
@@ -13,61 +14,39 @@ public class BathroomEntry {
 	}
 		
     //constructor: all fields
-	public BathroomEntry(String entryName, double entryRating, String entryNotes, String entryAddress, boolean entryCodeStatus) {
+	public BathroomEntry(String entryName, double entryRating, String entryNotes, String entryAddress, boolean entryCodeStatus, boolean entryAccessibility) {
 		name = entryName;
 		rating = entryRating;
 		notes = entryNotes;
 		address = entryAddress;
         codeStatus = entryCodeStatus;
+        accessibility = entryAccessibility;
 	}
 	
-    //constructor: name, address
-	public BathroomEntry(String entryName, String entryAddress) {
+    //constructor: name, address, code status, accessibility
+	public BathroomEntry(String entryName, String entryAddress, boolean entryCodeStatus, boolean entryAccessibility) {
 		name = entryName;
 		address = entryAddress;
-	}
-	//constructor: name, address, rating
-	public BathroomEntry(String entryName, double entryRating, String entryAddress) {
-		name = entryName;
-		rating = entryRating;
-		address = entryAddress;
-	}
-
-	//constructor: name, address, notes
-	public BathroomEntry(String entryName, String entryNotes, String entryAddress) {
-		name = entryName;
-		notes = entryNotes;
-		address = entryAddress;
-	}
-	//constructor: name, address, code status
-	public BathroomEntry(String entryName, boolean entryCodeStatus, String entryAddress) {
-		name = entryName;
-		codeStatus = entryCodeStatus;
-		address = entryAddress;
-	}
-
-    //constructor: name, address, rating, notes
-    public BathroomEntry(String entryName, double entryRating, String entryNotes, String entryAddress) {
-		name = entryName;
-		rating = entryRating;
-        notes = entryNotes;
-		address = entryAddress;
-	}
-
-    //constructor: name, address, rating, code status
-    public BathroomEntry(String entryName, double entryRating, boolean entryCodeStatus, String entryAddress) {
-		name = entryName;
-		rating = entryRating;
         codeStatus = entryCodeStatus;
-		address = entryAddress;
+        accessibility = entryAccessibility;
 	}
 
-    //constructor: name, address, notes, code status
-	public BathroomEntry(String entryName, String entryNotes, boolean entryCodeStatus, String entryAddress) {
+    //constructor: name, address, code status, accessibility, rating
+	public BathroomEntry(String entryName, String entryAddress, boolean entryCodeStatus, boolean entryAccessibility, double entryRating) {
 		name = entryName;
-		codeStatus = entryCodeStatus;
-        notes = entryNotes;
 		address = entryAddress;
+        codeStatus = entryCodeStatus;
+        accessibility = entryAccessibility;
+        rating = entryRating;
+	}
+
+    //constructor: name, address, code status, accessibility, notes
+	public BathroomEntry(String entryName, String entryAddress, boolean entryCodeStatus, boolean entryAccessibility, String entryNotes) {
+		name = entryName;
+		address = entryAddress;
+        codeStatus = entryCodeStatus;
+        accessibility = entryAccessibility;
+        notes = entryNotes;
 	}
 
 	//display info
@@ -76,6 +55,7 @@ public class BathroomEntry {
 		System.out.println("Location: " + getAddress());
 		System.out.println("Rating: " + getRating());
         System.out.println("Code status: " + getCodeStatus());
+        System.out.println("ADA compliance: " + getAccessibility());
 		System.out.println("Notes: " + getNotes());
 	}
 
@@ -118,6 +98,14 @@ public class BathroomEntry {
 
 	public void setCodeStatus(boolean codeStatus) {
 		this.codeStatus = codeStatus;
+	}
+
+     public boolean getAccessibility() {
+		return accessibility;
+	}
+
+	public void setAccessibility(boolean accessibility) {
+		this.accessibility = accessibility;
 	}
 
 }
