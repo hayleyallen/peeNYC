@@ -34,19 +34,20 @@ public class main {
     	 } catch(IOException E) {
     		 
     	 }
-		 String bathroomFile = "publicBathrooms";
-		 String line = null;
 
 
-		 String bathroomName = "";
-		 String bathroomRating = "";
+		String bathroomFile = "publicBathrooms";
+		String line = null;
+
+		String bathroomName = "";
+		String bathroomRating = "";
 		String bathroomAddress = "";
-		 String bathroomLat = "";
-		 String bathroomLong = "";
-		 String bathroomCode = "";
-		 String bathroomAccesibility = "";
+		String bathroomLat = "";
+		String bathroomLong = "";
+		String bathroomCode = "";
+		String bathroomAccesibility = "";
 
-		 try {
+		try {
 			FileReader fileReader = new FileReader("publicBathrooms");
 		
 			BufferedReader bufferedReader = new BufferedReader(fileReader);
