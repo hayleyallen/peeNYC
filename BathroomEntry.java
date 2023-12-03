@@ -5,7 +5,7 @@ public class BathroomEntry {
 	private double rating;
 	private String notes;
 	private String address;
-	private long lattitude;
+	private long latitude;
 	private long longitude;
 	private boolean codeStatus;
 	private boolean accessibility;
@@ -16,34 +16,34 @@ public class BathroomEntry {
 
 	// constructor: all fields
 	public BathroomEntry(String entryName, double entryRating, String entryNotes, String entryAddress,
-			long entryLattitude, long entryLongitude, boolean entryCodeStatus, boolean entryAccessibility) {
+			long entryLatitude, long entryLongitude, boolean entryCodeStatus, boolean entryAccessibility) {
 		name = entryName;
 		rating = entryRating;
 		notes = entryNotes;
 		address = entryAddress;
-		lattitude = entryLattitude;
+		latitude = entryLatitude;
 		longitude = entryLongitude;
 		codeStatus = entryCodeStatus;
 		accessibility = entryAccessibility;
 	}
 
 	// constructor: name, address, code status, accessibility
-	public BathroomEntry(String entryName, String entryAddress, long entryLattitude, long entryLongitude,
+	public BathroomEntry(String entryName, String entryAddress, long entryLatitude, long entryLongitude,
 			boolean entryCodeStatus, boolean entryAccessibility) {
 		name = entryName;
 		address = entryAddress;
-		lattitude = entryLattitude;
+		latitude = entryLatitude;
 		longitude = entryLongitude;
 		codeStatus = entryCodeStatus;
 		accessibility = entryAccessibility;
 	}
 
 	// constructor: name, address, code status, accessibility, rating
-	public BathroomEntry(String entryName, String entryAddress, long entryLattitude, long entryLongitude,
+	public BathroomEntry(String entryName, String entryAddress, long entryLatitude, long entryLongitude,
 			boolean entryCodeStatus, boolean entryAccessibility, double entryRating) {
 		name = entryName;
 		address = entryAddress;
-		lattitude = entryLattitude;
+		latitude = entryLatitude;
 		longitude = entryLongitude;
 		codeStatus = entryCodeStatus;
 		accessibility = entryAccessibility;
@@ -51,11 +51,11 @@ public class BathroomEntry {
 	}
 
 	// constructor: name, address, code status, accessibility, notes
-	public BathroomEntry(String entryName, String entryAddress, long entryLattitude, long entryLongitude,
+	public BathroomEntry(String entryName, String entryAddress, long entryLatitude, long entryLongitude,
 			boolean entryCodeStatus, boolean entryAccessibility, String entryNotes) {
 		name = entryName;
 		address = entryAddress;
-		lattitude = entryLattitude;
+		latitude = entryLatitude;
 		longitude = entryLongitude;
 		codeStatus = entryCodeStatus;
 		accessibility = entryAccessibility;
@@ -66,7 +66,7 @@ public class BathroomEntry {
 	public void printBathroomEntry() {
 		System.out.println("Name: " + getName());
 		System.out.println("Address: " + getAddress());
-		System.out.println("Coordinates (lattitude, longitude): " + getLattitude() + ", " + getLongitude());
+		System.out.println("Coordinates (latitude, longitude): " + getLatitude() + ", " + getLongitude());
 		System.out.println("Rating: " + getRating());
 		System.out.println("Code status: " + getCodeStatus());
 		System.out.println("ADA compliance: " + getAccessibility());
@@ -106,12 +106,12 @@ public class BathroomEntry {
 		this.address = address;
 	}
 
-	public long getLattitude() {
-		return lattitude;
+	public long getLatitude() {
+		return latitude;
 	}
 
-	public void setLattitude(long lattitude) {
-		this.lattitude = lattitude;
+	public void setLatitude(long latitude) {
+		this.latitude = latitude;
 	}
 
 	public long getLongitude() {
