@@ -1,9 +1,10 @@
 Location, rating out of 5, address, latitude, longitude, code, accessibility
 Bryant Park, 0, 5th Avenue and 42nd Street, 40.75366, -73.98310, -1, false
 New York Public Libarary, 0, 476 5th Avenue, 40.75326, -73.98223, -1, false
-Andaz Hotel, 0, 485 5th Avenue, 40.75291, -73.98077, -1, false
+Andaz Hotel, 0, 485 5th Avenue, 40.75291, -73.98077, 6008, false
 Old Navy, 0, 150 W 34th Street, 40.75043, -73.99003, -1, false
 Starbucks, 0, 665 Broadway, 40.72731, -73.99550, 4503, false
 Burlington, 0, 4 Union Square E, 40.73489, -73.99157, -1, false
 Standard Hotel, 0, 25 Cooper Square, 40.72790, -73.9963, -1, false
 The Smith-Lincoln Square, 0, 1900 Broadway, 40.77180, -73.98184, -1, false
+Bloomingdale's, 0, 59th Street and 1000 3rd Avenue, 40.76232, -73.96738, -1, false
