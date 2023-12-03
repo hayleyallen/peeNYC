@@ -33,12 +33,26 @@ public class Main {
 
 				entries.add(tmp[0].trim());
 				bathroomName = entries.get(i);
+
 				entries.add(tmp[1].trim());
+				bathroomRating = entries.get(i + 1);
+
 				entries.add(tmp[2].trim());
+				bathroomAddress = entries.get(i + 2);
+
 				entries.add(tmp[3].trim());
+				bathroomLat = entries.get(i + 3);
+
 				entries.add(tmp[4].trim());
+				bathroomLong = entries.get(i + 4);
+
 				entries.add(tmp[5].trim());
+				bathroomCode = entries.get(i + 5);
+
 				entries.add(tmp[6].trim());
+				bathroomAccesibility = entries.get(i + 6);
+
+				i += 7;
 
 			}
 
