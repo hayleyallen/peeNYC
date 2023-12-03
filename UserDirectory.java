@@ -19,4 +19,9 @@ public class UserDirectory {
 		}
 		return -2;
 	}
+
+	//get user's name
+	public String findName(int i) {
+		return userList.get(i).getName();
+	}
 }
