@@ -48,17 +48,6 @@ public class BathroomEntry {
 		rating = entryRating;
 	}
 
-	// constructor: name, address, code status, accessibility
-	public BathroomEntry(String entryName, String entryAddress, long entryLatitude, long entryLongitude,
-			boolean entryCodeStatus, boolean entryAccessibility) {
-		name = entryName;
-		address = entryAddress;
-		latitude = entryLatitude;
-		longitude = entryLongitude;
-		codeStatus = entryCodeStatus;
-		accessibility = entryAccessibility;
-	}
-
 	// display info
 	public void printBathroomEntry() {
 		System.out.println("Name: " + getName());
