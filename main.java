@@ -10,13 +10,13 @@ public class main {
 		String bathroomFile = "publicBathrooms";
 		String line = null;
 
-		boolean bathroomName = false;
-		boolean bathroomRating = false;
-		boolean bathroomAddress = false;
-		boolean bathroomLat = false;
-		boolean bathroomLong = false;
-		boolean bathroomCode = false;
-		boolean bathroomAccesibility = false;
+		String bathroomName = "";
+		String bathroomRating = "";
+		String bathroomAddress = "";
+		String bathroomLat = "";
+		String bathroomLong = "";
+		String bathroomCode = "";
+		String bathroomAccesibility = "";
 
 		try {
 			FileReader fileReader = new FileReader("publicBathrooms.txt");
@@ -28,13 +28,13 @@ public class main {
 
 				String[] tmp = line.split(",");
 
-				bathroomName = entries.add(tmp[0].trim());
-				bathroomRating = entries.add(tmp[1].trim());
-				bathroomAddress = entries.add(tmp[2].trim());
-				bathroomLat = entries.add(tmp[3].trim());
-				bathroomLong = entries.add(tmp[4].trim());
-				bathroomCode = entries.add(tmp[5].trim());
-				bathroomAccesibility = entries.add(tmp[6].trim());
+				entries.add(tmp[0].trim());
+				entries.add(tmp[1].trim());
+				entries.add(tmp[2].trim());
+				entries.add(tmp[3].trim());
+				entries.add(tmp[4].trim());
+				entries.add(tmp[5].trim());
+				entries.add(tmp[6].trim());
 
 			}
 
