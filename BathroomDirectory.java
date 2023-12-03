@@ -16,10 +16,32 @@ public class BathroomDirectory {
     }
 
     // print all bathroom names
-    public void printBathrooms() {
-        for (BathroomEntry bathroom : bathroomList)
-            System.out.print(bathroom.getName());
+    public void printBathrooms(long userLat, long userLong) {
+        double[] distanceArray = new double[size];
+        sortBathrooms(userLat, userLong, distanceArray);
 
+        for (int i = 0; i < size; i++) {
+            System.out.print(bathroomList.get(i).getName() + " ");
+            System.out.println();
+        }
+    }
+
+    public void sortBathrooms(long userLat, long userLong, double[] distanceArray) {
+        double latitude = userLat;
+        double longitude = userLong;
+
+        for (int i = 0; i < size; i++) {
+            double distance = DistanceCalculator.distanceCalculator(userLat, userLong, bathroomList.get(i));
+            distanceArray[i] = distance;
+        }
+    }
+
+    public int findBathroomByName(String name) {
+        for (int i = 0; i < size; i++) {
+            if (bathroomList.get(i).getName().equalsIgnoreCase(name))
+                return i;
+        }
+        return -1;
     }
 
     public BathroomEntry getEntry(int index) {

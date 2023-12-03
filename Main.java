@@ -83,6 +83,7 @@ public class Main extends BathroomDirectory {
 		System.out.println("easily find accessible, gender-neutral, public bathrooms near you!");
 
 		while (true) {
+			System.out.println();
 			System.out.println("Would you like to enter?");
 			String answer = input.next();
 			if (answer.equalsIgnoreCase("yes")) {
@@ -91,24 +92,77 @@ public class Main extends BathroomDirectory {
 				String[] latLong = userLatLong.split(",");
 				String latitude = latLong[0];
 				String longitude = latLong[1];
+				long longitude1 = (long) Double.parseDouble(longitude);
+				long latitude1 = (long) Double.parseDouble(latitude);
 
-				bathroomDirectory.printBathrooms();
+				bathroomDirectory.printBathrooms(latitude1, longitude1);
 
+				int choice = 0;
+				while (choice != -1) {
+					System.out.println("You can perform any of the following actions... ");
+					System.out.println("1. View a bathroom's details");
+					System.out.println("2. Add a bathroom");
+					System.out.println("3. Leave a review");
+					System.out.println("4. Exit app");
+
+					try {
+						choice = input.nextInt();
+					} catch (Exception e) {
+						System.err.println("Cannot read in your response as an integer");
+					}
+
+					switch (choice) {
+						case 1:
+							System.out.println("Which bathroom do you want to view details of? (by name)");
+							String tmp = input.nextLine();
+							int index = bathroomDirectory.findBathroomByName(tmp);
+							if (index == -1)
+								System.out.println("No bathroom found");
+							else
+								bathroomDirectory.getEntry(index).printBathroomEntry();
+
+							break;
+
+						case 2:
+							System.out.print("Enter Name: ");
+							String name = input.nextLine();
+							System.out.print("Enter Rating: ");
+							double rating = input.nextDouble();
+							System.out.print("Enter Address: ");
+							String address = input.nextLine();
+							System.out.print("Enter latitude: ");
+							Long latitude_ = input.nextLong();
+							System.out.print("Enter Latitude: ");
+							Long longitude_ = input.nextLong();
+							System.out.print("Enter code status: ");
+							int status = input.nextInt();
+							System.out.print("Is it accesible (T/F): ");
+							boolean access = input.nextBoolean();
+							BathroomEntry bathroom2 = new BathroomEntry(name, rating, address, latitude_, longitude_,
+									status, access);
+							bathroomDirectory.addEntry(bathroom2);
+							System.out.println("Successfully added!");
+
+						case 3:
+							System.out.println("Rate this bathroom out from 0-5 stars");
+							double rate = input.nextDouble();
+							break;
+						case 4:
+							System.out.print("exiting app***");
+							choice = -1;
+							System.exit(0);
+
+					}
+
+				}
 			} else if (answer.equalsIgnoreCase("no")) {
 				break;
 			} else {
 				System.out.print("Invalid answer option, please type yes or no");
 			}
+
 		}
 		System.out.print("exiting app***");
-	}
-
-	public void sortBathrooms(long userLat, long userLong, BathroomDirectory bathroomDirectory) {
-
-		for (int i = 0; i < bathroomDirectory.getSize(); i++) {
-			double distance = DistanceCalculator.distanceCalculator(userLat, userLong, bathroomDirectory.getEntry(0));
-		}
-
 	}
 
 	// check if user has an account
