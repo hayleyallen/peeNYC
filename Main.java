@@ -132,7 +132,7 @@ public class Main extends BathroomDirectory {
 							System.out.print("Enter Rating: ");
 							double rating = input.nextDouble();
 							System.out.print("Enter Address: ");
-							String address = input.nextLine();
+							String address = input.next();
 							System.out.print("Enter latitude: ");
 							Long latitude_ = input.nextLong();
 							System.out.print("Enter Latitude: ");
