@@ -107,6 +107,7 @@ public class Main extends BathroomDirectory {
 					System.out.println("3. Leave a review");
 					System.out.println("4. Exit app");
 
+					// validate input
 					try {
 						choice = input.nextInt();
 						System.out.println();
