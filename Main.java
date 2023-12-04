@@ -100,6 +100,7 @@ public class Main extends BathroomDirectory {
 
 				int choice = 0;
 				while (choice != -1) {
+					// menu
 					System.out.println();
 					System.out.println("You can perform any of the following actions... ");
 					System.out.println("1. View a bathroom's details");
