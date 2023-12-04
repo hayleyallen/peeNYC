@@ -118,7 +118,10 @@ public class Main extends BathroomDirectory {
 					switch (choice) {
 						case 1:
 							System.out.println("Which bathroom do you want to view details of? (by name)");
-							String tmp = input.next();
+							input.nextLine(); // Consume any residual characters
+							String tmp = input.nextLine().trim();
+							tmp = tmp.trim();
+
 							System.out.println();
 							int index = bathroomDirectory.findBathroomByName(tmp);
 							if (index == -1)
