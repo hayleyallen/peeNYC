@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.text.DecimalFormat;
 
 public class BathroomDirectory {
     private ArrayList<BathroomEntry> bathroomList = new ArrayList<BathroomEntry>();
@@ -16,24 +18,28 @@ public class BathroomDirectory {
     }
 
     // print all bathroom names
-    public void printBathrooms(long userLat, long userLong) {
+    public void printBathrooms(double userLat, double userLong) {
+
+        DecimalFormat f = new DecimalFormat("#0.00");
+
         double[] distanceArray = new double[size];
         sortBathrooms(userLat, userLong, distanceArray);
 
         for (int i = 0; i < size; i++) {
-            System.out.print(bathroomList.get(i).getName() + " ");
+            System.out.print(bathroomList.get(i).getName() + ": ");
+            System.out.print(f.format(distanceArray[i]) + " km away");
             System.out.println();
         }
     }
 
-    public void sortBathrooms(long userLat, long userLong, double[] distanceArray) {
-        double latitude = userLat;
-        double longitude = userLong;
+    public void sortBathrooms(double userLat, double userLong, double[] distanceArray) {
 
         for (int i = 0; i < size; i++) {
             double distance = DistanceCalculator.distanceCalculator(userLat, userLong, bathroomList.get(i));
             distanceArray[i] = distance;
         }
+
+        Arrays.sort(distanceArray);
     }
 
     public int findBathroomByName(String name) {

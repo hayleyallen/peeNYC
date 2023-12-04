@@ -45,11 +45,11 @@ public class Main extends BathroomDirectory {
 
 				entries.add(tmp[3].trim());
 				bathroomLat = entries.get(i + 3);
-				long latitude = (long) Double.parseDouble(bathroomLat);
+				double latitude = Double.parseDouble(bathroomLat);
 
 				entries.add(tmp[4].trim());
 				bathroomLong = entries.get(i + 4);
-				long longitude = (long) Double.parseDouble(bathroomLong);
+				double longitude = Double.parseDouble(bathroomLong);
 
 				entries.add(tmp[5].trim());
 				bathroomCode = entries.get(i + 5);
@@ -88,13 +88,13 @@ public class Main extends BathroomDirectory {
 			String answer = input.next();
 			if (answer.equalsIgnoreCase("yes")) {
 				System.out.println();
-				System.out.print("Enter your location (in latitude then longitude separated by a comma)");
-				String userLatLong = input.next();
-				String[] latLong = userLatLong.split(",");
-				String latitude = latLong[0];
-				String longitude = latLong[1];
-				long longitude1 = (long) Double.parseDouble(longitude);
-				long latitude1 = (long) Double.parseDouble(latitude);
+				System.out.println("Enter your location (in latitude then longitude separated by a comma)");
+				String userLatDouble = input.next();
+				String[] latDouble = userLatDouble.split(",");
+				String latitude = latDouble[0];
+				String longitude = latDouble[1];
+				double longitude1 = Double.parseDouble(longitude);
+				double latitude1 = Double.parseDouble(latitude);
 
 				bathroomDirectory.printBathrooms(latitude1, longitude1);
 
@@ -109,6 +109,7 @@ public class Main extends BathroomDirectory {
 
 					try {
 						choice = input.nextInt();
+						System.out.println();
 					} catch (Exception e) {
 						System.err.println("Cannot read in your response as an integer");
 					}
@@ -117,6 +118,7 @@ public class Main extends BathroomDirectory {
 						case 1:
 							System.out.println("Which bathroom do you want to view details of? (by name)");
 							String tmp = input.next();
+							System.out.println();
 							int index = bathroomDirectory.findBathroomByName(tmp);
 							if (index == -1)
 								System.out.println("No bathroom found");
@@ -134,9 +136,9 @@ public class Main extends BathroomDirectory {
 							System.out.print("Enter Address: ");
 							String address = input.next();
 							System.out.print("Enter latitude: ");
-							Long latitude_ = input.nextLong();
+							double latitude_ = input.nextDouble();
 							System.out.print("Enter Latitude: ");
-							Long longitude_ = input.nextLong();
+							double longitude_ = input.nextDouble();
 							System.out.print("Enter code status: ");
 							int status = input.nextInt();
 							System.out.print("Is it accesible (T/F): ");
@@ -147,6 +149,7 @@ public class Main extends BathroomDirectory {
 							System.out.println("Successfully added!");
 
 						case 3:
+
 							System.out.println();
 							System.out.println("Rate this bathroom out from 0-5 stars");
 							double rate = input.nextDouble();
