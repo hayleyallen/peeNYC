@@ -127,7 +127,7 @@ public class Main extends BathroomDirectory {
 
 						case 2:
 							System.out.println();
-							System.out.println("Enter Name: ");
+							System.out.print("Enter Name: ");
 							String name = input.next();
 							System.out.print("Enter Rating: ");
 							double rating = input.nextDouble();
@@ -169,6 +169,7 @@ public class Main extends BathroomDirectory {
 
 		}
 		System.out.print("exiting app***");
+		System.out.println();
 	}
 
 	// check if user has an account
