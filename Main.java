@@ -128,7 +128,7 @@ public class Main extends BathroomDirectory {
 						case 2:
 							System.out.println();
 							System.out.print("Enter Name: ");
-							String name = input.nextLine();
+							String name = input.next();
 							System.out.print("Enter Rating: ");
 							double rating = input.nextDouble();
 							System.out.print("Enter Address: ");
