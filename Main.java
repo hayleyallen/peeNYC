@@ -78,17 +78,18 @@ public class Main extends BathroomDirectory {
 
 		System.out.println();
 		System.out.println("PeeNYC");
+		System.out.println();
 		System.out.println("Find public bathrooms in New York City");
 		System.out.println("---------------------------------------");
-		System.out.println("easily find accessible, gender-neutral, public bathrooms near you!");
+		System.out.println("Easily find accessible, gender-neutral, public bathrooms near you!");
 
 		while (true) {
 			System.out.println();
-			System.out.println("Would you like to enter?");
+			System.out.println("Would you like to enter? (yes/no)");
 			String answer = input.next();
 			if (answer.equalsIgnoreCase("yes")) {
 				System.out.println();
-				System.out.println("Enter your location (in latitude then longitude separated by a comma)");
+				System.out.println("Enter your location (in latitude then longitude separated by only a comma)");
 				String userLatDouble = input.next();
 				String[] latDouble = userLatDouble.split(",");
 				String latitude = latDouble[0];
@@ -133,18 +134,24 @@ public class Main extends BathroomDirectory {
 							break;
 
 						case 2:
-							System.out.println();
+
 							System.out.print("Enter Name: ");
-							String name = input.next();
-							System.out.print("Enter Rating: ");
+
+							input.nextLine(); // Consume any residual characters
+							String name = input.nextLine().trim();
+							name = name.trim();
+
+							System.out.print("Enter Rating (1 - 5): ");
 							double rating = input.nextDouble();
 							System.out.print("Enter Address: ");
-							String address = input.next();
+							input.nextLine(); // Consume any residual characters
+							String address = input.nextLine().trim();
+							address = address.trim();
 							System.out.print("Enter latitude: ");
 							double latitude_ = input.nextDouble();
 							System.out.print("Enter Latitude: ");
 							double longitude_ = input.nextDouble();
-							System.out.print("Enter code status: ");
+							System.out.print("Enter code (-1 for no code): ");
 							int status = input.nextInt();
 							System.out.print("Is it accesible (T/F): ");
 							boolean access = input.nextBoolean();
