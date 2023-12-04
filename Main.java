@@ -147,6 +147,7 @@ public class Main extends BathroomDirectory {
 									status, access);
 							bathroomDirectory.addEntry(bathroom2);
 							System.out.println("Successfully added!");
+							System.out.println();
 
 						case 3:
 
@@ -157,6 +158,7 @@ public class Main extends BathroomDirectory {
 						case 4:
 							System.out.println();
 							System.out.print("exiting app***");
+							System.out.println();
 							choice = -1;
 							System.exit(0);
 
@@ -168,6 +170,7 @@ public class Main extends BathroomDirectory {
 			} else {
 				System.out.println();
 				System.out.print("Invalid answer option, please type yes or no");
+				System.out.println();
 			}
 
 		}
