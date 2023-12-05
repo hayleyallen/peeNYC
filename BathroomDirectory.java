@@ -27,15 +27,17 @@ public class BathroomDirectory {
 
         for (int i = 0; i < size; i++) {
             System.out.print(bathroomList.get(i).getName() + ": ");
-            System.out.print(f.format(distanceArray[i]) + " km away");
+            System.out.print(f.format(distanceArray[i]) + " mi away");
             System.out.println();
         }
     }
 
     public void sortBathrooms(double userLat, double userLong, double[] distanceArray) {
 
+        String[] nameArray = new String[size];
+
         for (int i = 0; i < size; i++) {
-            double distance = DistanceCalculator.distanceCalculator(userLat, userLong, bathroomList.get(i));
+            double distance = DistanceCalculator.calculateDistance(userLat, userLong, bathroomList.get(i));
             distanceArray[i] = distance;
         }
 

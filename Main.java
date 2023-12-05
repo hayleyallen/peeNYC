@@ -21,6 +21,7 @@ public class Main extends BathroomDirectory {
 		String bathroomAccesibility = "";
 		ArrayList<String> entries = new ArrayList<>();
 		BathroomDirectory bathroomDirectory = new BathroomDirectory();
+		UserDirectory userDirectory = new UserDirectory();
 
 		try {
 			FileReader fileReader = new FileReader("publicBathrooms.txt");
@@ -134,38 +135,51 @@ public class Main extends BathroomDirectory {
 							break;
 
 						case 2:
-
-							System.out.print("Enter Name: ");
-
-							input.nextLine(); // Consume any residual characters
-							String name = input.nextLine().trim();
-							name = name.trim();
-
-							System.out.print("Enter Rating (1 - 5): ");
-							double rating = input.nextDouble();
-							System.out.print("Enter Address: ");
-							input.nextLine(); // Consume any residual characters
-							String address = input.nextLine().trim();
-							address = address.trim();
-							System.out.print("Enter latitude: ");
-							double latitude_ = input.nextDouble();
-							System.out.print("Enter Latitude: ");
-							double longitude_ = input.nextDouble();
-							System.out.print("Enter code (-1 for no code): ");
-							int status = input.nextInt();
-							System.out.print("Is it accesible (T/F): ");
-							boolean access = input.nextBoolean();
-							BathroomEntry bathroom2 = new BathroomEntry(name, rating, address, latitude_, longitude_,
-									status, access);
-							bathroomDirectory.addEntry(bathroom2);
-							System.out.println("Successfully added!");
-							System.out.println();
+							if (login(userDirectory)) {
+								System.out.println();
+								System.out.print("Enter Name: ");
+								input.nextLine(); // Consume any residual characters
+								String name = input.nextLine().trim();
+								name = name.trim();
+								System.out.print("Enter Rating (1 - 5): ");
+								double rating = input.nextDouble();
+								System.out.print("Enter Address: ");
+								input.nextLine(); // Consume any residual characters
+								String address = input.nextLine().trim();
+								address = address.trim();
+								System.out.print("Enter latitude: ");
+								double latitude_ = input.nextDouble();
+								System.out.print("Enter Latitude: ");
+								double longitude_ = input.nextDouble();
+								System.out.print("Enter code (-1 for no code): ");
+								int status = input.nextInt();
+								System.out.print("Is it accesible (T/F): ");
+								String accessTF = input.next();
+								boolean access = false;
+								if (accessTF.equalsIgnoreCase("T")) {
+									access = true;
+								} else if (accessTF.equalsIgnoreCase("F")) {
+									access = false;
+								}
+								BathroomEntry bathroom2 = new BathroomEntry(name, rating, address, latitude_,
+										longitude_,
+										status, access);
+								bathroomDirectory.addEntry(bathroom2);
+								System.out.println("Successfully added!");
+								System.out.println();
+							} else {
+								System.out.println("Sorry, cannot add a bathroom without an account");
+							}
+							break;
 
 						case 3:
-
-							System.out.println();
-							System.out.println("Rate this bathroom out from 0-5 stars");
-							double rate = input.nextDouble();
+							if (login(userDirectory)) {
+								System.out.println();
+								System.out.println("Rate this bathroom out from 0-5 stars");
+								double rate = input.nextDouble();
+							} else {
+								System.out.println("Sorry, cannot leave a review without an account");
+							}
 							break;
 						case 4:
 							System.out.println();
@@ -191,8 +205,8 @@ public class Main extends BathroomDirectory {
 	}
 
 	// check if user has an account
-	public void login() {
-		UserDirectory userDirectory = new UserDirectory();
+	public static boolean login(UserDirectory userDirectory) {
+		boolean validLogin = false;
 		Scanner input = new Scanner(System.in);
 		int x = 1;
 		System.out.println("Do you have an account? y/n: ");
@@ -213,22 +227,63 @@ public class Main extends BathroomDirectory {
 				} else {
 					System.out.println("Hi " + (userDirectory.findName(index)));
 					x = 0;
+					validLogin = true;
 				}
 			}
+		} else {
+			System.out.println("Would you like to create an account? (y/n) ");
+			String ans = input.next();
+			if (ans.equalsIgnoreCase("y")) {
+				validLogin = createAccount(userDirectory);
+			}
 		}
+		return validLogin;
 	}
 
 	// create account
-	public void createAccount() {
-		UserDirectory userDirectory = new UserDirectory();
+	public static boolean createAccount(UserDirectory userDirectory) {
+
 		Scanner input = new Scanner(System.in);
-		System.out.println("Name: ");
-		String name = input.nextLine();
-		System.out.println("Username: ");
-		String username = input.nextLine();
-		System.out.println("Password: ");
-		String password = input.nextLine();
-		User newUser = new User(name, username, password);
-		userDirectory.addEntry(newUser);
+
+		boolean x = true;
+		boolean validCreate = false;
+		int canCreateInt;
+
+		while (x == true) {
+			System.out.println("Name: ");
+			String name = input.nextLine();
+			System.out.println("Username: ");
+			String username = input.nextLine();
+			System.out.println("Password: ");
+			String password = input.nextLine();
+
+			canCreateInt = 1;
+
+			for (int i = 0; i < userDirectory.getSize(); i++) {
+				if (userDirectory.getEntry(i).getUsername().equals(username)) {
+					System.out.println("Username unavailable");
+					System.out.print("Would you like to try again? (y/n)");
+					String response = input.nextLine();
+					System.out.println();
+					if (response.equalsIgnoreCase("n")) {
+						canCreateInt = -1;
+						x = false;
+						break;
+					} else {
+						canCreateInt = -1;
+					}
+				}
+
+			}
+			if (canCreateInt != -1) {
+				User newUser = new User(username, password, name);
+				userDirectory.addEntry(newUser);
+				System.out.print("Account created!");
+				x = false;
+				validCreate = true;
+				break;
+			}
+		}
+		return validCreate;
 	}
 }

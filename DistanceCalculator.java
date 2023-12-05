@@ -1,19 +1,27 @@
 public class DistanceCalculator {
-    private static final double EARTH_RADIUS_KM = 6371.0;
+    private static final double EARTH_RADIUS_MILES = 3958.8;
 
-    public static double distanceCalculator(double userLat, double userLong, BathroomEntry bathroom) {
-        double bathroomLat = bathroom.getLatitude();
-        double bathroomLong = bathroom.getLongitude();
+    // Calculate distance using Haversine formula
+    public static double calculateDistance(double lat1, double lon1, BathroomEntry bathroom) {
+        double lat2 = bathroom.getLatitude();
+        double lon2 = bathroom.getLongitude();
 
-        double lat1Rad = Math.toRadians(userLat);
-        double lat2Rad = Math.toRadians(bathroomLat);
-        double lon1Rad = Math.toRadians(userLong);
-        double lon2Rad = Math.toRadians(bathroomLong);
+        // Convert latitude and longitude from degrees to radians
+        double radLat1 = Math.toRadians(lat1);
+        double radLon1 = Math.toRadians(lon1);
+        double radLat2 = Math.toRadians(lat2);
+        double radLon2 = Math.toRadians(lon2);
 
-        double x = (lon2Rad - lon1Rad) * Math.cos((lat1Rad + lat2Rad) / 2);
-        double y = (lat2Rad - lat1Rad);
-        double distance = Math.sqrt(x * x + y * y) * EARTH_RADIUS_KM;
+        // Calculate differences
+        double deltaLat = radLat2 - radLat1;
+        double deltaLon = radLon2 - radLon1;
 
-        return distance;
+        // Haversine formula
+        double a = Math.pow(Math.sin(deltaLat / 2), 2)
+                + Math.cos(radLat1) * Math.cos(radLat2) * Math.pow(Math.sin(deltaLon / 2), 2);
+        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+        // Calculate distance
+        return EARTH_RADIUS_MILES * c;
     }
 }
