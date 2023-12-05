@@ -6,5 +6,5 @@ Starbucks, 0, 665 Broadway, 40.72731, -73.99550, 4503, false
 Burlington, 0, 4 Union Square E, 40.73489, -73.99157, -1, false
 Standard Hotel, 0, 25 Cooper Square, 40.727905, -73.990785, -1, false
 The Smith-Lincoln Square, 0, 1900 Broadway, 40.77180, -73.98184, -1, false
-Bloomingdale's, 0, 59th Street and 1000 3rd Avenue, 40.76232, -73.96738, -1, falseWhole Foods,3.0,4 Union Square South,40.73473,-73.99145,-1,true
-Whole Foods,3.0,4 Union Square South,40.73473,-73.99145,-1,true
+Bloomingdale's, 0, 59th Street and 1000 3rd Avenue, 40.76232, -73.96738, -1, false
+
