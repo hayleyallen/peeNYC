@@ -1,6 +1,8 @@
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 
@@ -136,6 +138,7 @@ public class Main extends BathroomDirectory {
 
 						case 2:
 							if (login(userDirectory)) {
+
 								System.out.println();
 								System.out.print("Enter Name: ");
 								input.nextLine(); // Consume any residual characters
@@ -165,6 +168,7 @@ public class Main extends BathroomDirectory {
 										longitude_,
 										status, access);
 								bathroomDirectory.addEntry(bathroom2);
+
 								System.out.println("Successfully added!");
 								System.out.println();
 							} else {

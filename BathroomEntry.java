@@ -52,7 +52,11 @@ public class BathroomEntry {
 		System.out.println("Address: " + getAddress());
 		System.out.println("Coordinates (latitude, longitude): " + getLatitude() + ", " + getLongitude());
 		System.out.println("Rating: " + getRating());
-		System.out.println("Code status: " + getCodeStatus());
+		if (getCodeStatus() == -1) {
+			System.out.println("Code status: no code needed");
+		} else {
+			System.out.println("Code status: " + getCodeStatus());
+		}
 		System.out.println("ADA compliance: " + getAccessibility());
 	}
 

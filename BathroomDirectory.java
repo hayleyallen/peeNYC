@@ -22,8 +22,9 @@ public class BathroomDirectory {
 
         DecimalFormat f = new DecimalFormat("#0.00");
 
+        ArrayList<BathroomEntry> sortedList = new ArrayList<>();
         double[] distanceArray = new double[size];
-        sortBathrooms(userLat, userLong, distanceArray);
+        sortBathrooms(userLat, userLong, distanceArray, sortedList);
 
         for (int i = 0; i < size; i++) {
             System.out.print(bathroomList.get(i).getName() + ": ");
@@ -32,9 +33,8 @@ public class BathroomDirectory {
         }
     }
 
-    public void sortBathrooms(double userLat, double userLong, double[] distanceArray) {
-
-        String[] nameArray = new String[size];
+    public void sortBathrooms(double userLat, double userLong, double[] distanceArray,
+            ArrayList<BathroomEntry> sortedList) {
 
         for (int i = 0; i < size; i++) {
             double distance = DistanceCalculator.calculateDistance(userLat, userLong, bathroomList.get(i));
@@ -42,6 +42,16 @@ public class BathroomDirectory {
         }
 
         Arrays.sort(distanceArray);
+
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                if (distanceArray[i] == DistanceCalculator.calculateDistance(userLat, userLong, bathroomList.get(j))) {
+                    sortedList.add(getEntry(j));
+                }
+            }
+        }
+
+        bathroomList = sortedList;
     }
 
     public int findBathroomByName(String name) {
@@ -59,7 +69,7 @@ public class BathroomDirectory {
     // search for bathroom by address and delete entry (if bathroom no longer there)
     public void DeleteEntry(String address) {
         for (int i = 0; i < bathroomList.size(); i++) {
-            if (bathroomList.get(i).getAddress() == address) {
+            if (bathroomList.get(i).getAddress().equals(address)) {
                 bathroomList.remove(i);
             }
         }
