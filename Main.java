@@ -1,8 +1,6 @@
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 
@@ -138,7 +136,6 @@ public class Main extends BathroomDirectory {
 
 						case 2:
 							if (login(userDirectory)) {
-
 								System.out.println();
 								System.out.print("Enter Name: ");
 								input.nextLine(); // Consume any residual characters
@@ -168,7 +165,6 @@ public class Main extends BathroomDirectory {
 										longitude_,
 										status, access);
 								bathroomDirectory.addEntry(bathroom2);
-
 								System.out.println("Successfully added!");
 								System.out.println();
 							} else {
@@ -178,22 +174,9 @@ public class Main extends BathroomDirectory {
 
 						case 3:
 							if (login(userDirectory)) {
-
-								System.out.println("Which bathroom do you want to leave a review for? (by name)");
-								input.nextLine(); // Consume any residual characters
-								String brName = input.nextLine().trim();
-								brName = brName.trim();
-
 								System.out.println();
-								int index_ = bathroomDirectory.findBathroomByName(brName);
-								if (index_ == -1)
-									System.out.println("No bathroom found");
-								else
-									System.out.println();
 								System.out.println("Rate this bathroom out from 0-5 stars");
 								double rate = input.nextDouble();
-								double calcRating = (bathroomDirectory.getEntry(index_).getRating() + rate) / 2;
-								bathroomDirectory.getEntry(index_).setRating(calcRating);
 							} else {
 								System.out.println("Sorry, cannot leave a review without an account");
 							}
